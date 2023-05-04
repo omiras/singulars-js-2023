@@ -27,12 +27,41 @@
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
+        let num1 = Math.floor(Math.random() * 100); // 1. Math.random
+        let num2 = Math.floor(Math.random() * 100); // 2. Math.random
 
         // 3. - 2 líneas de código usando adecuadamente querySelector
 
+        document.querySelector('#primary-number').innerHTML = +num1;
+        document.querySelector('#secondary-number').innerHTML = +num2;
+
         // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+
+            document.querySelector('#btn').addEventListener('click', (e) => {
+
+                let correctNumber = num1 + num2;
+                let guessNumber = +document.querySelector('#guess').value;
+                let greetingMessage = document.querySelector('.greeting-message');
+
+                if (guessNumber === correctNumber) {
+                    greetingMessage.style.display = 'block';
+                    greetingMessage.innerHTML = 'Correcte!';
+                    greetingMessage.style.color = 'green';
+                    greetingMessage.style.border = '1px solid green';
+
+                } else {
+                    greetingMessage.style.display = 'block';
+                    greetingMessage.innerHTML = `Ho sento! El valor correcte era ${correctNumber}`;
+                    greetingMessage.style.color = 'red';
+                    greetingMessage.style.border = '1px solid red';
+                };
+
+                document.querySelector('#guess').value = '';
+                
+            });
+
+            
+
     </script>
 </body>
 

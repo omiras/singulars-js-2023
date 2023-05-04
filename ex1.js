@@ -8,7 +8,15 @@
  * Si el esperma contiene el cromosoma X, devuelva "¡Felicitaciones! Tendrás una hija."; Si el esperma contiene el cromosoma Y, devuelva "¡Felicitaciones! Tendrás un hijo.". Cualquier otra combinación no es posible, y deberíamos devolver un mensaje de esta forma: "Lo siento, el hijo no se llevará a termino."
  */
 
-function chromosomeCheck(chromosomes) {}
+function chromosomeCheck(chromosomes) {
+    if (chromosomes.includes('XY')) {
+        return '¡Felicitaciones! Tendrás un hijo.';
+    } else if (chromosomes.includes('XX')) {
+        return '¡Felicitaciones! Tendrás una hija.';
+    } else {
+        return 'Lo siento, el hijo no se llevará a término.';
+    };
+};
 
 console.log(chromosomeCheck("XY")); // "Felicitaciones! Tendrás un hijo."
 console.log(chromosomeCheck("XX")); // "Felicitaciones! Tendrás una hija."

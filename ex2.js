@@ -16,6 +16,8 @@ function filterCountries(countries, continentToFilter) {
 
   /** Modificar a partir de aquí */
 
+  filteredCountries = countries.filter((country) => country.continent.includes(continentToFilter));
+
   /** No modificar a partir de aquí */
 
   return filteredCountries;
