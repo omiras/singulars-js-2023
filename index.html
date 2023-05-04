@@ -29,6 +29,7 @@
     <script>
     let num1 = Math.floor(Math.random() * 100);
     let num2 = Math.floor(Math.random() * 100);
+    let texto = document.querySelector(".greeting-message");
     document.querySelector("#primary-number").textContent = num1;
     document.querySelector("#secondary-number").textContent = num2;
 
@@ -37,15 +38,13 @@
     btn.addEventListener("click", function() {
     let guess = parseInt(document.querySelector("#guess").value);
     if (guess === num1 + num2) {
-    document.querySelector(".greeting-message").style.display = "block";
-    document.querySelector(".greeting-message").textContent = "¡Correcto!";
-    document.querySelector(".greeting-message").style.backgroundColor = "green";
+    texto.style.display = "block";
+    texto.textContent = "¡Correcto!";
+    texto.style.backgroundColor = "green";
     } else {
-    document.querySelector(".greeting-message").style.display = "block";
-    document.querySelector(".greeting-message").style.backgroundColor = "red";
-    document.querySelector(".greeting-message").textContent = `Incorrecto. La respuesta era ${num1 + num2}.`;
-    
-    
+    texto.style.display = "block";
+    texto.style.backgroundColor = "red";
+    texto.textContent = `Incorrecto. La respuesta era ${num1 + num2}.`;
     }
     });
         
