@@ -12,10 +12,9 @@ const countries = [
 ];
 
 function filterCountries(countries, continentToFilter) {
-  let filteredCountries = [];
 
   /** Modificar a partir de aquí */
-
+  let filteredCountries = countries.filter(country => country.continent === continentToFilter);
   /** No modificar a partir de aquí */
 
   return filteredCountries;
@@ -37,3 +36,14 @@ console.log("Paises de Asia: ", filterCountries(countries, "Asia")); // [{ name:
  * 2. Usar adecuadamente un método de array que nos permita 'filtrar' el array 'countries' por el continente 'continentToFilter'
  *
  */
+// function filterCountries(countries, continentToFilter) {
+//   let filteredCountries = [];
+
+//   for (let i = 0; i < countries.length; i++) {
+//     if (countries[i].continent === continentToFilter) {
+//       filteredCountries.push(countries[i]);
+//     }
+//   }
+
+//   return filteredCountries;
+// }
