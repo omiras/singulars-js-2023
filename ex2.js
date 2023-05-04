@@ -15,14 +15,20 @@ function filterCountries(countries, continentToFilter) {
   let filteredCountries = [];
 
   /** Modificar a partir de aquí */
-
+  filteredCountries = countries.filter(country => country.continent === continentToFilter);
   /** No modificar a partir de aquí */
 
   return filteredCountries;
 }
 
+
+//Descomentar estas dos lineas 
 console.log("Paises de Europa: ", filterCountries(countries, "Europa")); // [{ name: "España", continent:"Europa" },{ name: "Italia", continent: "Europa" }];
+
+
 console.log("Paises de Asia: ", filterCountries(countries, "Asia")); // [{ name: "China", continent: "Asia" }];
+
+
 
 /**
  * Implementa la función filterCountries. La función recibe dos parámetros
