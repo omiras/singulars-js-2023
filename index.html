@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="canvas">
-        <div id="primary-number">aqui va num1</div>
-        <div id="add">+</div>
-        <div id="secondary-number">aqui va num2</div>
-        <div id="equal">=</div>
-        <div>
-            <input type="number" id="guess">
-        </div>
-        <div>
-            <button id="btn">check</button>
-        </div>
+      <div id="primary-number">aqui va num1</div>
+      <div id="add">+</div>
+      <div id="secondary-number">aqui va num2</div>
+      <div id="equal">=</div>
+      <div>
+        <input type="number" id="guess" />
+      </div>
+      <div>
+        <button id="btn">check</button>
+      </div>
     </div>
     <div>
-        <p class="greeting-message"></p>
+      <p class="greeting-message"></p>
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
+      let num1 = Math.floor(Math.random() * 100); // 1. Math.random
+      let num2 = Math.floor(Math.random() * 100); // 2. Math.random
+      const number1 = document.querySelector("#primary-number");
+      const number2 = document.querySelector("#secondary-number");
+      number1.textContent = num1;
+      number2.textContent = num2;
+      const input = document.querySelector("#guess");
+      const btn = document.querySelector("#btn");
+      const message = document.querySelector(".greeting-message");
 
-        // 3. - 2 líneas de código usando adecuadamente querySelector
+      // 3. - 2 líneas de código usando adecuadamente querySelector
+      btn.addEventListener("click", () => {
+        const guess = Number(input.value);
 
-        // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+        if (guess === num1 + num2) {
+          message.style.display = "block";
+          message.style.backgroundColor = 'green';
+          message.textContent = "¡Respuesta correcta!";
+        } else {
+          message.style.display = "block";
+          message.style.backgroundColor = 'red';
+          message.textContent = "¡Repuesta incorrecta! Intentalo de nuevo";
+        }
+        document.querySelector('#guess').value = '';
+      });
+      
+      // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
     </script>
-</body>
-
+  </body>
 </html>
