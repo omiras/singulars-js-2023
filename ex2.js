@@ -12,9 +12,10 @@ const countries = [
 ];
 
 function filterCountries(countries, continentToFilter) {
-  let filteredCountries = [];
+  
+  let filteredCountries = countries.filter(countries => countries.continent === continentToFilter);
 
-  /** Modificar a partir de aquí */
+
 
   /** No modificar a partir de aquí */
 
