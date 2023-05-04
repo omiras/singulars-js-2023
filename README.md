@@ -10,7 +10,7 @@ Completa el ejercicio especificado en el mismo fichero. Para ejecutar el script:
 
 1. Si pasa el primer console.log, 1 punto
 2. Si pasa el segundo console.log, 1 punto
-3. Si para el resto de pruebas, 1.5 puntos
+3. Si pasa el resto de pruebas, 1.5 puntos
 
 ## Ejercicio 2
 
