@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="canvas">
-        <div id="primary-number">aqui va num1</div>
-        <div id="add">+</div>
-        <div id="secondary-number">aqui va num2</div>
-        <div id="equal">=</div>
-        <div>
-            <input type="number" id="guess">
-        </div>
-        <div>
-            <button id="btn">check</button>
-        </div>
+      <div id="primary-number">aqui va num1</div>
+      <div id="add">+</div>
+      <div id="secondary-number">aqui va num2</div>
+      <div id="equal">=</div>
+      <div>
+        <input type="number" id="guess" />
+      </div>
+      <div>
+        <button id="btn">check</button>
+      </div>
     </div>
     <div>
-        <p class="greeting-message"></p>
+      <p class="greeting-message" style="display: flex; border: none"></p>
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
+      let min = 1;
+      let max = 100;
 
-        // 3. - 2 líneas de código usando adecuadamente querySelector
+      const primaryNumber = document.querySelector("#primary-number");
+      const secondaryNumber = document.querySelector("#secondary-number");
 
-        // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+      let [num1, num2] = [
+        Math.floor(Math.random() * (max - min + 1)) + min,
+        Math.floor(Math.random() * (max - min + 1)) + min,
+      ];
+
+      primaryNumber.textContent = num1;
+      secondaryNumber.textContent = num2;
+
+      const btn = document.querySelector("#btn");
+      btn.addEventListener("click", sumNumbers);
+
+      function sumNumbers() {
+        // Añadir paréntesis después del nombre de la función
+        const guess = Number(document.querySelector("#guess").value);
+        const sum = num1 + num2;
+
+        const message = document.querySelector(".greeting-message");
+        if (guess === sum) {
+          message.textContent = `¡Felicidades! La suma de números es correcta`;
+          message.style.color = "green";
+        } else {
+          message.textContent = `Lo siento, tu suma es incorrecta, la respuesta correcta es: ${sum}`;
+          message.style.color = "red";
+        }
+        document.querySelector("#guess").value = "";
+      }
+      // 3. - 2 líneas de código usando adecuadamente querySelector
+      // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
     </script>
-</body>
-
+  </body>
 </html>
