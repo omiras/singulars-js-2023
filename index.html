@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-
 <body>
     <div id="canvas">
         <div id="primary-number">aqui va num1</div>
@@ -19,21 +17,48 @@
             <input type="number" id="guess">
         </div>
         <div>
-            <button id="btn">check</button>
+            <button id="check-button">Check</button>
         </div>
     </div>
     <div>
-        <p class="greeting-message"></p>
+        <p id="result-message"></p>
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
+        let num1;
+        let num2;
 
-        // 3. - 2 líneas de código usando adecuadamente querySelector
+        const primaryNumberElement = document.querySelector("#primary-number");
+        const secondaryNumberElement = document.querySelector("#secondary-number");
+        const guessInputElement = document.querySelector("#guess");
+        const resultMessageElement = document.querySelector("#result-message");
 
-        // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+        function generateRandomNumbers() {
+            num1 = Math.floor(Math.random() * 101);
+            num2 = Math.floor(Math.random() * 101);
+
+            primaryNumberElement.textContent = num1;
+            secondaryNumberElement.textContent = num2;
+        }
+
+        generateRandomNumbers();
+
+        const checkButtonElement = document.querySelector("#check-button");
+        checkButtonElement.addEventListener("click", () => {
+            const guess = parseInt(guessInputElement.value);
+            const sum = num1 + num2;
+
+            if (guess === sum) {
+                resultMessageElement.style.color = "green";
+                resultMessageElement.textContent = "¡Correcto!";
+            } else {
+                resultMessageElement.style.color = "red";
+                resultMessageElement.textContent = `Lo siento, la respuesta correcta es ${sum}.`;
+            }
+
+            guessInputElement.value = "";
+            generateRandomNumbers();
+        });
     </script>
 </body>
-
 </html>
