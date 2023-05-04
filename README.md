@@ -34,7 +34,7 @@ Enlace al [vídeo](https://oscarm.tinytake.com/msc/ODE4Njk4OF8yMTM5MjEzNA)
 
 1. Usa adecuadamente Math.random() para calcular un número aleatorio entre 0 y 100. 0.5 puntos
 2. Usa adecuadamente Math.random() para calcular un número aleatorio entre 0 y 100. 0.5 puntos
-3. Se muestras los números adecuadamente en cada cuadrado. 0.5 puntos
+3. Si muestras los números adecuadamente en cada cuadrado. 0.5 puntos
 4. Asocia correctamente un listener del evento _click_ al botón de 'check'. 0.5 puntos
 5. Si aparece el mensaje adecuado en función de si la suma es correcta o no. Fíjate bien en el vídeo de ejemplo qué mensaje debe aparecer. 2 puntos
 6. El color del texto del mensaje es verde o rojo, en función de si el usuario acertó o no la suma. 0.5 puntos
