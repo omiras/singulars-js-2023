@@ -11,6 +11,7 @@
 
 <body>
     <div id="canvas">
+        <button id="reg">Regenerar</button>
         <div id="primary-number">aqui va num1</div>
         <div id="add">+</div>
         <div id="secondary-number">aqui va num2</div>
@@ -27,10 +28,48 @@
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
 
-        // 3. - 2 líneas de código usando adecuadamente querySelector
+    
+        
+
+        let num1 = Math.floor(Math.random() * 101);
+        let num2 = Math.floor(Math.random() * 101);
+        document.querySelector('#primary-number').innerHTML = `<span>${num1}</span>`
+        document.querySelector('#secondary-number').innerHTML = `<span>${num2}</span>`
+
+        document.querySelector('#reg').addEventListener('click', () => {
+                num1 = Math.floor(Math.random() * 101);
+                num2 = Math.floor(Math.random() * 101);
+                document.querySelector('#primary-number').innerHTML = `<span>${num1}</span>`
+                document.querySelector('#secondary-number').innerHTML = `<span>${num2}</span>`
+            })
+
+
+        document.querySelector('#btn').addEventListener('click', () => {
+            const valueInput = document.querySelector('input').value
+            const message =  document.querySelector('.greeting-message')
+            
+
+            document.querySelector('#primary-number').innerHTML = `<span>${num1}</span>`
+            document.querySelector('#secondary-number').innerHTML = `<span>${num2}</span>`
+
+            const result = num1 + num2
+
+            if(+valueInput == result){
+                console.log('es correcto')
+                message.style.display = 'block'
+                message.style.color = 'green'
+                message.innerText = 'Correcto!'
+            }else{
+                message.style.display = 'block'
+                message.style.color = 'red'
+                message.innerText = 'Es super incorrecto'
+            }
+
+  
+        })
+
+        
 
         // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
     </script>
