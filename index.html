@@ -1,39 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="canvas">
-        <div id="primary-number">aqui va num1</div>
-        <div id="add">+</div>
-        <div id="secondary-number">aqui va num2</div>
-        <div id="equal">=</div>
-        <div>
-            <input type="number" id="guess">
-        </div>
-        <div>
-            <button id="btn">check</button>
-        </div>
+      <div id="primary-number">aqui va num1</div>
+      <div id="add">+</div>
+      <div id="secondary-number">aqui va num2</div>
+      <div id="equal">=</div>
+
+      <div class="group">
+        <input id="guess" required="" type="number" class="input">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>¿Cual és el resultado?</label>
+      </div>
+
+
+      <!-- <div class="input-container">
+        <input id="guess" class="input" type="number">
+        <label class="label" for="input">Introduce el resultado de la suma:</label>
+        <div class="topline"></div>
+        <div class="underline"></div>
+        </div> -->
+      <!-- <div>
+        <input type="number" id="guess" />
+      </div> -->
+      <div>
+        <button id="btn" class="ui-btn"><span>check</span></button>
+      </div>
     </div>
     <div>
-        <p class="greeting-message"></p>
+      <p class="greeting-message"></p>
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
+      let num1 = Math.floor(Math.random() * 100) + 1; // 1. Math.random
+      let num2 = Math.floor(Math.random() * 100) + 1; // 2. Math.random
 
-        // 3. - 2 líneas de código usando adecuadamente querySelector
+      // 3. - 2 líneas de código usando adecuadamente querySelector
+      document.querySelector("#primary-number").textContent = num1;
+      document.querySelector("#secondary-number").textContent = num2;
 
-        // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+      // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+      document.querySelector("#btn").addEventListener("click", function () {
+        console.log("Has hecho click");
+        const guess = parseInt(document.querySelector("#guess").value);
+        const result = num1 + num2;
+
+        if (guess === result) {
+          const greetingMessage = document.querySelector(".greeting-message");
+          greetingMessage.innerHTML = `Muy bien! Respuesta correcta!`;
+          greetingMessage.classList.add("show");
+          document.querySelector("#guess").value = "";
+          setTimeout(function () {
+            greetingMessage.classList.remove("show");
+          }, 3000);
+          greetingMessage.style.visibility = "visible";
+          greetingMessage.style.backgroundColor = "green";
+          greetingMessage.style.color = "white";
+          greetingMessage.style.border = "1px solid green";
+        } else {
+          const greetingMessage = document.querySelector(".greeting-message");
+          greetingMessage.innerHTML = `Respuesta incorrecta!`;
+          greetingMessage.classList.add("show");
+          document.querySelector("#guess").value = "";
+          setTimeout(function () {
+            greetingMessage.classList.remove("show");
+          }, 3000);
+          greetingMessage.style.visibility = "visible";
+          greetingMessage.style.backgroundColor = "red";
+          greetingMessage.style.color = "white";
+          greetingMessage.style.border = "1px solid red";
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>
