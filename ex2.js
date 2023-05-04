@@ -15,7 +15,7 @@ function filterCountries(countries, continentToFilter) {
   let filteredCountries = [];
 
   /** Modificar a partir de aquí */
-
+filteredCountries = countries.filter(countries => countries.continent === continentToFilter)
   /** No modificar a partir de aquí */
 
   return filteredCountries;
