@@ -9,9 +9,13 @@
  */
 
 function chromosomeCheck(chromosomes) {
-    if(chromosomes === "XY"){
-        return "Felicitaciones! Tendrás un hijo."
-    }
+  if (chromosomes === "XY") {
+    return "Felicitaciones! Tendrás un hijo.";
+  } else if (chromosomes === "XX") {
+    return "Felicitaciones! Tendrás una hija.";
+  } else {
+    return "Lo siento, el hijo no se llevará a término.";
+  }
 }
 
 console.log(chromosomeCheck("XY")); // "Felicitaciones! Tendrás un hijo."

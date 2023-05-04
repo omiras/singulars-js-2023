@@ -13,6 +13,9 @@ const countries = [
 
 function filterCountries(countries, continentToFilter) {
   let filteredCountries = [];
+  filteredCountries = countries.filter((countrie) =>
+    countrie.continent.includes(continentToFilter)
+  );
 
   /** Modificar a partir de aquí */
 
@@ -23,6 +26,7 @@ function filterCountries(countries, continentToFilter) {
 
 console.log("Paises de Europa: ", filterCountries(countries, "Europa")); // [{ name: "España", continent:"Europa" },{ name: "Italia", continent: "Europa" }];
 console.log("Paises de Asia: ", filterCountries(countries, "Asia")); // [{ name: "China", continent: "Asia" }];
+console.log("Paises de Asia: ", filterCountries(countries, "América del Sur"));
 
 /**
  * Implementa la función filterCountries. La función recibe dos parámetros
