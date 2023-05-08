@@ -20,12 +20,12 @@
 
     function chromosomeCheck(chromosomes){
         if (chromosomes === "XY"){
-            return '¡Felicitaciones! tendrás un hijo 👶'
+            return '¡Felicitaciones! tendrás un hijo'
         }else if (chromosomes === "XX"){
-            return '¡Felicitaciones! tendrás una hija 👧'
+            return '¡Felicitaciones! tendrás una hija'
         }
         // Si no se cumplen las otras condiciones.
-        return 'Lo siento, el hijo no se llevará a termino 😢'
+        return 'Lo siento, el hijo no se llevará a termino'
     }
         
 console.log(chromosomeCheck("XY")); // "Felicitaciones! Tendrás un hijo."
