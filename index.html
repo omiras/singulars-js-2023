@@ -27,12 +27,40 @@
     </div>
 
     <script>
-        let num1; // 1. Math.random
-        let num2; // 2. Math.random
+        let num1 = Math.trunc(Math.random() * 100) + 1;    // 1. Math.random
+        let num2 = Math.trunc(Math.random() * 100) + 1; // 2. Math.random
+        console.log(num1, num2, num1 + num2)
 
         // 3. - 2 líneas de código usando adecuadamente querySelector
+        document.querySelector('#primary-number').textContent = num1;
+        document.querySelector('#secondary-number').textContent = num2;
 
         // 4. - addEventListener. NO hace falta un evento 'submit' aquí porque no estamos gestionando un <form>. Escuchar el evento 'click' es suficiente
+        let greetingMessage = document.querySelector('.greeting-message')
+        let userInput = document.querySelector('#guess')
+
+        function displayMessage(message , color){
+            greetingMessage.textContent = message;
+            greetingMessage.style.borderColor = color;
+            greetingMessage.style.color = color;
+        }
+
+        document.querySelector('#btn').addEventListener('click', () => {
+            // Cuando se le da click al botón, se cambia la propiedad display none => block para que se muestre.
+            greetingMessage.style.display = 'block'
+            // Necesitamos el número ingresado para poder realizar cálculos. Convertir string a num.
+            userNumber = Number(userInput.value)
+            
+            if (userNumber === num1 + num2){
+                displayMessage('Correcte!', 'green')
+            }else{
+                displayMessage(`Ho sento! El valor correcte era ${num1 + num2}`, 'red')
+            }
+            // Limpiar el valor del input despues de hacer click
+            userInput.value = "";
+            
+        }  )
+        
     </script>
 </body>
 

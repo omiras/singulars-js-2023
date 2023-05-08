@@ -12,10 +12,17 @@ const countries = [
 ];
 
 function filterCountries(countries, continentToFilter) {
+  // Para utilizar el método filter no es necesario inicializar un array ya que este devuelve uno nuevo.
   let filteredCountries = [];
 
   /** Modificar a partir de aquí */
-
+  //return countries.filter(country => country.continent === continentToFilter)
+  for (let i = 0; i < countries.length; i++){
+    if (countries[i].continent === continentToFilter){
+      filteredCountries.push(countries[i])
+    }
+  }
+  
   /** No modificar a partir de aquí */
 
   return filteredCountries;
